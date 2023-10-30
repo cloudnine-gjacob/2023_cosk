@@ -44,11 +44,11 @@ function initTimeline() {
   tl.from('#rotation1', { duration: 2, rotation:-30, ease:Power4.easeOut, transformOrigin:'50% 50%'}, 'bfIn')
   tl.from(['#black-center', '#friday-center'], 1, {scale:3, autoAlpha:0, filter:'blur(3px)', ease:Power4.easeOut, transformOrigin:'50% 50%', stagger: .4}, 'bfIn');
 
-  tl.from(['#last-min', '#deals'], { duration: .5, scale: 1.5, autoAlpha: 0, filter:'blur(5px)', transformOrigin:'center center', ease:Back.easeOut, stagger: .1}, "bfIn+=.75");
+  tl.from(['#l0', '#l1'], { duration: .5, scale: 1.5, autoAlpha: 0, filter:'blur(5px)', transformOrigin:'center center', ease:Back.easeOut, stagger: .1}, "bfIn+=.75");
   
   tl.to('#banner', {duration: 2})
   
-  tl.to(['#last-min', '#deals'], 1, {scale: .9, autoAlpha: 0, filter:'blur(5px)', transformOrigin:'center center', ease:Power4.easeOut});
+  tl.to(['#l0', '#l1'], 1, {scale: .9, autoAlpha: 0, filter:'blur(5px)', transformOrigin:'center center', ease:Power4.easeOut});
   
   tl.from('.product1', { duration: .5, scale: .9, autoAlpha: 0, transformOrigin:'50% 25%', ease:Back.easeOut}, 'product1');
   tl.to(['#black', '#friday', '.teaser ellipse'], .1, {fill:'#fffab0'}, 'product1');
