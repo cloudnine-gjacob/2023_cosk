@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Fireplace Preview</title>
+</head>
+<style>
+    body {
+        width: calc(100% - 600px);
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background-color: white;
+
+    }
+
+    #left {
+        width: 160px;
+        height: 600px;
+    }
+
+
+    #leaderboard {
+        position: relative;
+        width: 100%;
+        height: 90px;
+        margin: 0px auto 0px auto;
+        display: block;
+    }
+
+
+    #right {
+        width: 160px;
+        height: 600px;
+    }
+
+    #grid {
+        display: grid;
+        grid-template-columns: 160px auto 160px;
+        min-width: calc(160px + 728px + 160px);
+        max-width: calc(160px + 1500px + 160px);
+    }
+
+</style>
+
+
+<body>
+    <div id="grid">
+        <iframe id="left" src="160x600_left/index.html"
+            frameborder="0"></iframe>
+        <div id="leaderboard-wrapper"><iframe id="leaderboard"
+                src="0x90/index.html" frameborder="0"></iframe>
+        </div>
+        <iframe id="right" src="160x600_right/index.html"
+            frameborder="0"></iframe>
+    </div>
+</body>
+
+</html>

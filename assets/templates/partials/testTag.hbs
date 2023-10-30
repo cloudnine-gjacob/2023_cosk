@@ -1,0 +1,4 @@
+//setup test tag for local testing
+window.clickType = '{{config.adHoster}}';
+var testTag = decodeURIComponent('{{config.testTag}}');
+testTag = (testTag.search('lakito') == -1) ? testTag : testTag + window.clickType;

@@ -1,0 +1,8 @@
+{
+    "mainJs": "../_assets/js/minute_mb.js",
+    "template": "../_assets/hbs/minute-btn.hbs",
+    
+    "productRgx": "tonline",
+
+    "density": 4
+}

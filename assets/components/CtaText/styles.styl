@@ -1,0 +1,88 @@
+ad-cta-text {
+  /**
+    CSS VARS:
+    --cta-position
+    --cta-top
+    --cta-right
+    --cta-bottom
+    --cta-left
+    --cta-font-size
+    --cta-font-family
+    --cta-font-weight
+    --cta-text-color
+    --cta-border-width
+    --cta-border-color
+    --cta-border-radius
+    --cta-border-radius
+    --cta-display
+    --cta-padding
+    --cta-height
+    --cta-bg-color
+    --cta-text-hover-color
+    --cta-border-hover-color
+    --cta-bg-hover-color
+  */
+  /* positioning */
+  position: var(--cta-position, absolute);
+  top: var(--cta-top, auto);
+  right: var(--cta-right, auto);
+  bottom: var(--cta-bottom, auto);
+  left: var(--cta-left, auto); /* font */
+  height: var(--cta-height, 2em);
+  font-size: var(--cta-font-size, 20px);
+  font-family: var(--cta-font-family, inherit);
+  font-weight: var(--cta-font-weight, 700);
+  color: var(--cta-text-color, black);
+  backface-visibility: hidden;
+  transition: color 0.05s; /* * BORDER * */
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    bottom: -1px;
+    left: -1px;
+    border: var(--cta-border-width, 2px) solid;
+    border-color: var(--cta-border-color, black);
+    border-radius: var(--cta-border-radius, 999px);
+    transition: border-color 0.05s;
+  }
+
+  .cta__wrapper {
+    position: relative;
+    border-radius: var(--cta-border-radius, 999px);
+    display: var(--cta-display, flex);
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    isolation: isolate; /* sizing */
+    padding: var(--cta-padding, 0 1em);
+    height: var(--cta-height, 2em);
+  }
+
+  /* background */
+  .cta__bg {
+    position: absolute;
+    inset: 0;
+    background-color: var(--cta-bg-color, grey);
+    transition: background-color 0.05s;
+  }
+
+  .cta__text {
+    position: relative;
+  }
+
+  body:hover & {
+    color: var(--cta-text-hover-color, red);
+  }
+
+  body:hover &::after {
+    border-color: var(--cta-border-hover-color, green);
+  }
+
+  body:hover & .cta__bg {
+    background-color: var(--cta-bg-hover-color, white);
+  }
+}

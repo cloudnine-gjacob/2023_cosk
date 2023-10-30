@@ -1,0 +1,20 @@
+
+
+{{#if_eq config.adHoster "dcs"}}
+  {{> dcs ../this}}
+{{/if_eq}}
+
+{{#if_eq config.adHoster "iab"}}
+  {{> iab ../this}}
+{{/if_eq}}
+
+{{#if_eq config.adHoster "adform"}}
+  {{> adform ../this}}
+{{/if_eq}}
+
+
+{{#if_eq config.adHoster "flashtalking"}}
+  {{> flashtalking ../this}}
+{{/if_eq}}
+
+

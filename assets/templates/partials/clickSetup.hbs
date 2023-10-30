@@ -1,0 +1,18 @@
+if(!clickElement) clickElement = '#banner';
+
+document.querySelector(clickElement).addEventListener('mouseenter', onEnter, false);
+document.querySelector(clickElement).addEventListener('mouseleave', onLeave, false);
+document.querySelector(clickElement).addEventListener('click', onClick, false);
+
+function onEnter() {
+    var event = document.createEvent('Event');
+    event.initEvent('OVER', true, false);
+    document.dispatchEvent(event);
+};
+
+
+function onLeave() {
+    var event = document.createEvent('Event');
+    event.initEvent('OUT', true, false);
+    document.dispatchEvent(event);
+};

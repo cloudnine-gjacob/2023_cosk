@@ -1,0 +1,86 @@
+//°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+// YOUTUBE PLAYER CUSTOM CONTROLS
+//................................
+
+@import '../../../scss/tools/colors';
+
+$soundBtnColor: $color-grey;
+$playBtnColor: $color-grey;
+
+//---------------------------------------------------------------------------------------- CONTROL BAR
+
+.video-player__controls {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: none;
+  opacity: 0;
+  z-index: 2;
+  transform: translateY(100%);
+  transition: transform 0s;
+  padding-bottom: 5px;
+
+
+  //----------------------------------------------------------------------------------- PLAY-PAUSE-BTN
+
+  &__sound-btn {
+    width: 50px;
+    height: 30px;
+    background-color: $soundBtnColor;
+    cursor: pointer;
+    background-position: center;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2047.37%2046.48%22%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill%3A%23fff%3B%7D%3C%2Fstyle%3E%3C%2Fdefs%3E%3Ctitle%3EsoundBtnOff-01%3C%2Ftitle%3E%3Cg%20id%3D%22Layer_1%22%20data-name%3D%22Layer%201%22%3E%3Cg%20id%3D%22polygon1%22%3E%3Cpolygon%20class%3D%22cls-1%22%20points%3D%2224.5%208.14%2013.93%2017.29%203.92%2017.29%203.92%2029.06%2013.77%2029.06%2024.5%2038.34%2024.5%208.14%22%2F%3E%3Cpath%20class%3D%22cls-1%22%20d%3D%22M24.5%2C39.84a1.5%2C1.5%2C0%2C0%2C1-1-.37L13.21%2C30.56H3.92a1.5%2C1.5%2C0%2C0%2C1-1.5-1.5V17.29a1.5%2C1.5%2C0%2C0%2C1%2C1.5-1.5h9.45L23.52%2C7A1.5%2C1.5%2C0%2C0%2C1%2C26%2C8.14v30.2a1.5%2C1.5%2C0%2C0%2C1-1.5%2C1.5ZM5.42%2C27.56h8.36a1.5%2C1.5%2C0%2C0%2C1%2C1%2C.37L23%2C35.06V11.42l-8.1%2C7a1.5%2C1.5%2C0%2C0%2C1-1%2C.37H5.42Z%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    margin-left: 2px;
+  }
+
+
+
+  //---------------------------------------------------------------------------------------- SOUND-BTN
+
+  &__play-pause-btn {
+    width: 50px;
+    height: 30px;
+    background-color: $playBtnColor;
+    cursor: pointer;
+    background-position: center;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2047.37%2046.48%22%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill%3A%23fff%3B%7D%3C%2Fstyle%3E%3C%2Fdefs%3E%3Ctitle%3EplayOverlay%3C%2Ftitle%3E%3Cpath%20class%3D%22cls-1%22%20d%3D%22M0%2C5C0%2C2.25%2C2%2C1%2C4.47%2C2.24L45.53%2C22.76C48%2C24%2C48%2C26%2C45.53%2C27.24L4.47%2C47.76C2%2C49%2C0%2C47.75%2C0%2C45Z%22%20transform%3D%22translate(0%20-1.76)%22%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-size: 15px 15px;
+    margin-left: 2px;
+  }
+
+
+
+  //------------------------------------------------------------------------------------------- EVENTS
+
+  [data-sound*='UNMUTE'] & {
+    &__sound-btn {
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2047.37%2046.48%22%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill%3A%23fff%3B%7D%3C%2Fstyle%3E%3C%2Fdefs%3E%3Ctitle%3EsoundBtnOn%3C%2Ftitle%3E%3Cg%20id%3D%22Layer_1%22%20data-name%3D%22Layer%201%22%3E%3Cg%20id%3D%22polygon1%22%3E%3Cpolygon%20class%3D%22cls-1%22%20points%3D%2224.5%208.14%2013.93%2017.29%203.92%2017.29%203.92%2029.06%2013.77%2029.06%2024.5%2038.34%2024.5%208.14%22%2F%3E%3Cpath%20class%3D%22cls-1%22%20d%3D%22M24.5%2C39.84a1.5%2C1.5%2C0%2C0%2C1-1-.37L13.21%2C30.56H3.92a1.5%2C1.5%2C0%2C0%2C1-1.5-1.5V17.29a1.5%2C1.5%2C0%2C0%2C1%2C1.5-1.5h9.45L23.52%2C7A1.5%2C1.5%2C0%2C0%2C1%2C26%2C8.14v30.2a1.5%2C1.5%2C0%2C0%2C1-1.5%2C1.5ZM5.42%2C27.56h8.36a1.5%2C1.5%2C0%2C0%2C1%2C1%2C.37L23%2C35.06V11.42l-8.1%2C7a1.5%2C1.5%2C0%2C0%2C1-1%2C.37H5.42Z%22%2F%3E%3C%2Fg%3E%3Cg%20id%3D%22path1%22%3E%3Cpath%20class%3D%22cls-1%22%20d%3D%22M29.89%2C31.38a1.5%2C1.5%2C0%2C0%2C1-1.27-2.29%2C10.88%2C10.88%2C0%2C0%2C0%2C0-11.63%2C1.5%2C1.5%2C0%2C0%2C1%2C2.53-1.61%2C13.88%2C13.88%2C0%2C0%2C1%2C.06%2C14.82A1.5%2C1.5%2C0%2C0%2C1%2C29.89%2C31.38Z%22%2F%3E%3C%2Fg%3E%3Cg%20id%3D%22path2%22%3E%3Cpath%20class%3D%22cls-1%22%20d%3D%22M34.24%2C35.73A1.5%2C1.5%2C0%2C0%2C1%2C33%2C33.34%2C17%2C17%2C0%2C0%2C0%2C33%2C13.21a1.5%2C1.5%2C0%2C1%2C1%2C2.41-1.79%2C20%2C20%2C0%2C0%2C1%2C.06%2C23.69A1.5%2C1.5%2C0%2C0%2C1%2C34.24%2C35.73Z%22%2F%3E%3C%2Fg%3E%3Cg%20id%3D%22path1-2%22%20data-name%3D%22path1%22%3E%3Cpath%20class%3D%22cls-1%22%20d%3D%22M38.26%2C39.75a1.5%2C1.5%2C0%2C0%2C1-1.18-2.43A22.61%2C22.61%2C0%2C0%2C0%2C37%2C9.22a1.5%2C1.5%2C0%2C1%2C1%2C2.35-1.87%2C25.61%2C25.61%2C0%2C0%2C1%2C.07%2C31.83A1.5%2C1.5%2C0%2C0%2C1%2C38.26%2C39.75Z%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+    }
+  }
+
+  [data-status*='PLAYING'] & {
+    &__play-pause-btn {
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20id%3D%22Layer_1%22%20data-name%3D%22Layer%201%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2047.37%2046.48%22%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill%3A%23fff%3B%7D%3C%2Fstyle%3E%3C%2Fdefs%3E%3Ctitle%3EpauseIcon%3C%2Ftitle%3E%3Crect%20class%3D%22cls-1%22%20x%3D%224.08%22%20width%3D%2215.92%22%20height%3D%2246.48%22%20rx%3D%225%22%20ry%3D%225%22%2F%3E%3Crect%20class%3D%22cls-1%22%20x%3D%2227%22%20width%3D%2215.92%22%20height%3D%2246.48%22%20rx%3D%225%22%20ry%3D%225%22%2F%3E%3C%2Fsvg%3E");
+    }
+  }
+
+  [data-status*='PLAYING'] &,
+  [data-status*='PAUSED'] &
+  {
+    display: flex;
+    opacity: 1;
+    transition: opacity .5s, transform .5s;
+  }
+
+  //hide sound button on old iOS
+  //devices it does not work anyway
+  [data-pointerevents*='false'] &{
+    &__sound-btn{
+      display: none!important;
+    }
+  }
+}

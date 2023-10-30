@@ -1,0 +1,165 @@
+
+<!--CDN libs-->
+<script src="https://s0.2mdn.net/ads/studio/cached_libs/gsap_3.11.5_min.js"></script>
+<script src="https://s0.2mdn.net/ads/studio/Enabler.js"></script>
+
+{{#if config.responsive}}
+{{#if_eq config.bannerType 'inpage'}}
+    <script src="https://s0.2mdn.net/ads/richmedia/studio/37408878/TechLab_HTML5_ResponsiveAd_v1.min.js" type="text/javascript"></script>
+{{/if_eq}}
+{{/if}}
+
+
+<!--polite js file for loading es6 bundle-->
+<script src='{{config.politeName}}.js' type='text/javascript'></script>
+
+<script>
+
+    /**
+    * This file is compatible with DCS
+    * GoogleDCSClick
+    */
+
+    {{> testTag }}
+
+    // If true, start function. If false, listen for INIT.
+    window.onload = function () {
+        if ( Enabler.isInitialized() ) {
+            enablerInitHandler();
+        } else {
+            Enabler.addEventListener(studio.events.StudioEvent.INIT, enablerInitHandler);
+        }
+    };
+
+
+    function enablerInitHandler() {
+        document.getElementById("banner").classList.add('ready');
+
+        if({{ config.setupClicktag }}) setupClickTag();
+
+        if ( Enabler.isPageLoaded() ) {
+            pageLoadedHandler();
+
+        } else {
+            Enabler.addEventListener(studio.events.StudioEvent.PAGE_LOADED, pageLoadedHandler);
+
+        }
+    }
+
+
+    function setupClickTag(clickElement) {
+        console.log("DCS ClickTag");
+
+        {{> clickSetup }}
+
+
+        function onClick() {
+            console.log("DCS Click");
+
+            {{> exitEvent }}
+
+            if(window.isLocal()){
+                window.open(testTag, '_blank');
+            } else{
+                Enabler.exit('EXIT');
+            }
+        };
+    }
+
+
+
+    function pageLoadedHandler() {
+        //responsive / floating banner code
+        {{#if config.responsive}}
+        {{#if_eq config.bannerType 'inpage'}}
+            //if responsive inpage call enabler functions to expand dom elements
+            ResponsiveAd.resize(Enabler, '100%', '100%', '{{config.bannerMinWidth}}px', '{{config.bannerMinHeight}}px');
+            loadMainJs();
+        {{/if_eq}}
+
+        {{#if_eq config.bannerType 'floating'}}
+        //if responsive floating call enabler functions for fullscreen
+        function handleFullscreen() {
+            console.log('handelFullscreen');
+            Enabler.setFloatingPixelDimensions({{config.bannerWidth}}, {{config.bannerHeight}}); // as these are interstitials, a width and height need to be set
+
+            Enabler.addEventListener(
+                studio.events.StudioEvent.FULLSCREEN_SUPPORT,
+                function(e){
+                    if (e.supported) {
+                        console.log('supported');
+                        Enabler.requestFullscreenExpand();
+                    } else {
+                        pageLoadedHandler();
+                    }
+                },
+                false
+            );
+
+            Enabler.addEventListener(studio.events.StudioEvent.FULLSCREEN_EXPAND_START, function(){
+                console.log('FULLSCREEN_EXPAND_START');
+                Enabler.finishFullscreenExpand();
+            }, false);
+
+            Enabler.addEventListener(studio.events.StudioEvent.FULLSCREEN_EXPAND_FINISH, function(){
+                console.log('FULLSCREEN_EXPAND_FINISH');
+                loadMainJs();
+            }, false);
+
+            Enabler.requestFullscreenExpand();
+
+        }
+
+        handleFullscreen();
+        {{/if_eq}}
+        {{/if}}
+
+        {{#if_eq config.bannerType 'floating'}}
+            //basic floating code
+            if(window.c9Config.autoCloseTimeout != 0) var autoCloseTimeout = setTimeout(onAutoClose, window.c9Config.autoCloseTimeout * 1000);
+
+            function onAutoClose(e) {
+                console.log('AUTO_CLOSE');
+
+                document.querySelector('#banner').style.display = 'none';
+                Enabler.close();
+            }
+
+            document.addEventListener('EXIT', onCloseExit);
+            function onCloseExit(e) {
+                console.log('CLOSE_ON_EXIT');
+                if(autoCloseTimeout) clearTimeout(autoCloseTimeout);
+                setTimeout(function(){
+                    Enabler.close();
+                }, 100);
+            }
+
+            if(document.querySelector('#close-btn')){
+                document.querySelector('#close-btn').addEventListener('click', onCloseClick);
+                function onCloseClick(e) {
+                    e.stopPropagation();
+
+                    if(autoCloseTimeout) clearTimeout(autoCloseTimeout);
+
+                    var event = document.createEvent('Event');
+                    event.initEvent('EXIT', true, false);
+                    document.dispatchEvent(event);
+
+                    Enabler.reportManualClose();
+                    Enabler.close();
+                }
+            }
+        {{/if_eq}}
+
+        {{#unless config.responsive}}
+        loadMainJs();
+        {{/unless}}
+
+    }
+
+</script>
+
+ {{> isLocal }}
+
+</body>
+</html>

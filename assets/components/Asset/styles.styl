@@ -1,0 +1,21 @@
+ad-asset {
+  display: block;
+  position: var(--image-position, absolute);
+  top: var(--image-top, 0);
+  right: var(--image-right, auto);
+  bottom: var(--image-bottom, auto);
+  left: var(--image-left, 0);
+  width: var(--image-width, 100%);
+  height: var(--image-height, 100%);
+
+  img {
+    width: 100%;
+    height: 100%;
+
+    .zoom & {
+      transform: rotate(0.02deg);
+      transform-style: preserve-3d;
+      backface-visibility: hidden;
+    }
+  }
+}

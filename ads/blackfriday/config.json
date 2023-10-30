@@ -1,0 +1,24 @@
+{
+  "politeJs": "/assets/js/polite.js",
+  "politeName": "polite",
+
+  "mainJs": "../_assets/js/Standard.js",
+
+  "mainStyles": "./ad.styl",
+  "autoFormatStyles": true,
+
+  "template": "../_assets/hbs/standard.hbs",
+  "bannerType": "inpage",
+  "autoCloseTimeout": 0,
+
+  "responsive": false,
+
+  "adHead": "head",
+  "adHoster": "iab",
+  "setupClicktag": true,
+  "cdnUrl": "",
+  "testTag": "https%3A%2F%2Flakito.de%2Fclicktag_tester%2Findex.html%3Ftype%3D",
+
+  "fallback": "fallback.jpg",
+  "density": 2
+}

@@ -1,0 +1,27 @@
+ad-cta-image {
+  display: block;
+  position: relative;
+
+  .cta--idle {
+    position: relative;
+  }
+
+  .cta--hover {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  &:hover {
+    .cta--hover {
+      opacity: 1;
+    }
+  }
+
+  /* body:hover & {
+    .cta--hover {
+      opacity: 1;
+    }
+  } */
+}

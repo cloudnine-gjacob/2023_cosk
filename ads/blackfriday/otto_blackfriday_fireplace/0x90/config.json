@@ -1,0 +1,10 @@
+{
+  "template": "../../_assets/hbs/standard.hbs",
+  "mainJs": "../../_assets/js/Fireplace.js",
+  "bannerWidth": 728,
+  "bannerHeight": 90,
+  "frame": "top",
+  "frames": ["left", "top", "right"],
+
+  "productRgx": "top"
+}

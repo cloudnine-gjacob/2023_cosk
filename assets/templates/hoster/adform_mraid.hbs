@@ -1,0 +1,65 @@
+<!--CDN libs-->
+<script src="https://s0.2mdn.net/ads/studio/cached_libs/gsap_3.11.5_min.js"></script>
+<script src="mraid.js"></script>
+
+<!--primary js file for loading es6 bundle-->
+<script src='{{config.politeName}}.js' type='text/javascript'></script>
+
+<!--js entry point and clicktag-->
+<script>
+    /**
+     * This file is compatible with Adform MRAID
+     */
+
+    {{> testTag }}
+
+
+
+    window.onload = function () {
+        loadMainJs();
+        if({{ config.setupClicktag }}) setupClickTag();
+        setupCloseButton();
+    };
+
+
+    function setupClickTag(clickElement) {
+        console.log("AdForm MRAID ClickTag");
+
+        {{> clickSetup }}
+
+
+        function onClick() {
+            console.log("Adfrom MRAID Click");
+
+            {{> exitEvent }}
+
+            if(window.isLocal()){
+                window.open(testTag, '_blank');
+            } else{
+                window.mraid ? mraid.open(Adform.getClickURL('clickTAG')) : window.open(dhtml.getVar('clickTAG', 'http://www.adform.com'), dhtml.getVar('landingPageTarget', '_blank'));
+            }
+        };
+    }
+
+
+    {{> isLocal }}
+
+
+    function setupCloseButton() {
+        try {
+            var closeButton = document.getElementById("close-btn");
+            if(closeButton) mraid.useCustomClose(true);
+            closeButton.addEventListener("click", function(e) {
+                console.log('CLOSE!!!');
+                e.stopImmediatePropagation();
+                mraid.close();
+            });
+        }catch(e){
+            console.log("no close button");
+        }
+    }
+
+</script>
+
+</body>
+</html>

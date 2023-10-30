@@ -1,0 +1,1 @@
+{"name":"2023","version":"0.0.0","license":"MIT","type":"module","engines":{"node":">=18"},"scripts":{"dev":"NODE_ENV=development adpack build","prod":"NODE_ENV=production adpack build","deploy":"node ./rsync.js"},"dependencies":{"@cloudnine-media/adpack":"^1.0","gsap":"file:gsap-bonus.tgz"}}

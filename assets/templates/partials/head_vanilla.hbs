@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang='en' xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0"/>
+
+    <!--changes the size of the banner here and in css-->
+    <meta name="ad.size" content="width={{config.bannerWidth}}, height={{config.bannerHeight}}"/>
+
+    <!--some DCS banners need these tags but they don't affect other adservers-->
+    <meta data-template-name='TechLab_HTML5_LocalConnect'>
+    <meta data-template-name='TechLab_HTML5_ResponsiveAd'>
+
+    <title>Banner</title>
+
+    <!--this is a window object that defines basic banner properties-->
+    <!--changes the size of the banner here and in css-->
+    <script>
+        window.c9 = {
+            bannerWidth: {{config.bannerWidth}},
+            bannerHeight: {{config.bannerHeight}}
+        };
+    </script>
+
+    <!--css file for banner styling-->
+    <link rel="stylesheet" type="text/css" href="{{config.dirName}}.css">
+
+</head>
+
+<body>
+
+<!--changes can be made to DOM elements here:-->

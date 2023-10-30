@@ -1,0 +1,29 @@
+<svg class="video-start-button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128.54 74.05">
+  <defs>
+    <style>
+      .video-start-button-cls-1 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <title>VideoStartIcon</title>
+  <g id="_DE">
+    <g>
+      <path class="video-start-button-cls-1" d="M4.85,73.91H3.11V65.7H0v-1.6H8v1.6H4.85Z"/>
+      <path class="video-start-button-cls-1" d="M15.78,73.91l-2.41-3.42H11.22v3.42H9.49V64.11h4.37c2.25,0,3.64,1.19,3.64,3.11a2.94,2.94,0,0,1-2.34,3l2.65,3.71Zm-2.06-8.24H11.22V69h2.52c1.23,0,2-.64,2-1.65S15,65.68,13.72,65.68Z"/>
+      <path class="video-start-button-cls-1" d="M28.72,73.91H26.9l-1-2.37H21.27l-1,2.37H18.49L22.81,64h1.6ZM23.58,66.1,21.9,70h3.38Z"/>
+      <path class="video-start-button-cls-1" d="M31.94,64.11v9.81H30.21V64.11Z"/>
+      <path class="video-start-button-cls-1" d="M34.27,64.11H36v8.24h5.16v1.57H34.27Z"/>
+      <path class="video-start-button-cls-1" d="M49.93,65.65H44.38V68.2H49.3v1.54H44.38v2.63H50v1.54H42.66V64.11h7.27Z"/>
+      <path class="video-start-button-cls-1" d="M58,73.91l-2.41-3.42H53.48v3.42H51.76V64.11h4.37c2.25,0,3.64,1.19,3.64,3.11a2.94,2.94,0,0,1-2.34,3l2.65,3.71ZM56,65.68H53.48V69H56c1.23,0,2-.64,2-1.65S57.28,65.68,56,65.68Z"/>
+      <path class="video-start-button-cls-1" d="M69.3,68.23c2.07.52,3.15,1.23,3.15,2.89,0,1.86-1.44,2.94-3.5,2.94a6,6,0,0,1-4.09-1.57l1-1.23A4.45,4.45,0,0,0,69,72.53c1.06,0,1.74-.48,1.74-1.25s-.39-1.08-2.21-1.51c-2.09-.5-3.26-1.11-3.26-2.94S66.66,64,68.6,64a5.44,5.44,0,0,1,3.56,1.23l-.92,1.3a4.49,4.49,0,0,0-2.66-1c-1,0-1.6.52-1.6,1.18S67.42,67.76,69.3,68.23Z"/>
+      <path class="video-start-button-cls-1" d="M78.14,73.91H76.4V65.7H73.29v-1.6h8v1.6H78.14Z"/>
+      <path class="video-start-button-cls-1" d="M90.91,73.91H89.09l-1-2.37H83.46l-1,2.37H80.68L85,64h1.6ZM85.77,66.1,84.09,70h3.38Z"/>
+      <path class="video-start-button-cls-1" d="M98.59,73.91l-2.41-3.42H94v3.42H92.3V64.11h4.37c2.25,0,3.64,1.19,3.64,3.11a2.94,2.94,0,0,1-2.34,3l2.65,3.71Zm-2.06-8.24H94V69h2.52c1.23,0,2-.64,2-1.65S97.82,65.68,96.53,65.68Z"/>
+      <path class="video-start-button-cls-1" d="M106.25,73.91h-1.74V65.7H101.4v-1.6h8v1.6h-3.11Z"/>
+      <path class="video-start-button-cls-1" d="M118.16,65.65h-5.55V68.2h4.92v1.54h-4.92v2.63h5.62v1.54h-7.34V64.11h7.27Z"/>
+      <path class="video-start-button-cls-1" d="M126.84,64.11h1.7v9.81H127.1l-5.41-7v7H120V64.11h1.6l5.25,6.78Z"/>
+    </g>
+  </g>
+  <path id="video-start-icon" d="M90.13,25.65A25.65,25.65,0,1,1,64.48,0,25.7,25.7,0,0,1,90.13,25.65Zm-12.42,0L56,10.53l.09,30.24Z"/>
+</svg>

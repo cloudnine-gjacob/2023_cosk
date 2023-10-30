@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@assets/*": [
+        "./assets/*"
+      ],
+      "@helpers/*": [
+        "./assets/js/helpers/*"
+      ],
+      "@components/*": [
+        "./assets/components/*"
+      ],
+    }
+  }
+}

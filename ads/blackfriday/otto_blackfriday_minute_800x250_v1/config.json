@@ -1,0 +1,6 @@
+{
+    "mainJs": "../_assets/js/minute.js",
+    "template": "../_assets/hbs/minute.hbs",
+    
+    "productRgx": "tonline"
+}

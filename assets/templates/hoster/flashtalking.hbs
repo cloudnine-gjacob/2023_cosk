@@ -1,0 +1,51 @@
+<!--CDN libs-->
+<script src="https://cdn.flashtalking.com/frameworks/js/gsap/latest/TweenMax.min.js"></script>
+
+<!--primary js file for loading es6 bundle-->
+<script src='{{config.politeName}}.js' type='text/javascript'></script>
+
+<!--js entry point and clicktag-->
+<script>
+
+    /**
+    * This file is used in Flash Talking only
+    */
+
+    {{> testTag }}
+
+
+
+    window.onload = function () {
+        loadMainJs();
+        if({{ config.setupClicktag }}) setupClickTag();
+    };
+
+
+    function setupClickTag(clickElement) {
+        if (typeof myFT !== "undefined"){
+            console.log("FT ClickTag");
+            myFT.applyClickTag(myFT.$("#banner"), 1);
+        }
+
+
+        {{> clickSetup }}
+
+
+        function onClick() {
+            console.log("FT Click");
+
+            {{> exitEvent }}
+
+            if(window.isLocal()){
+                window.open(testTag, '_blank');
+            }
+        };
+    }
+
+
+    {{> isLocal }}
+
+</script>
+
+</body>
+</html>

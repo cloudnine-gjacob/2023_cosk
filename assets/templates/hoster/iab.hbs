@@ -1,0 +1,72 @@
+<!--//CDN libs-->
+<script src="https://s0.2mdn.net/ads/studio/cached_libs/gsap_3.11.5_min.js"></script>
+
+<!--polite js file for loading es6 bundle-->
+<script src='{{config.politeName}}.js' type='text/javascript'></script>
+
+<!--js entry point and clicktag-->
+<script>
+    /**
+    * This file is compatible with IAB / Google AdWords / SAS / OKV / And most other basic ad servers
+    */
+
+    {{> testTag }}
+
+    var clicktag = '';
+    var clickTag = '';
+    var clickTAG = '';
+
+    window.onload = function () {
+        loadMainJs();
+        if({{ config.setupClicktag }}) setupClickTag();
+    };
+
+
+    function setupClickTag(clickElement) {
+        console.log("IAB Universal ClickTag");
+
+        {{> clickSetup }}
+
+        function onClick() {
+            console.log("IAB Universal Click");
+
+            {{> exitEvent }}
+
+            {{> getUriParams }}
+
+            //check all the click tag flavors
+            if (window.clicktag != '') {
+                window.clickTag = window.clicktag;
+
+            } else if (window.clickTAG != '') {
+                window.clickTag = window.clickTAG;
+
+            } else if (getUriParams.clicktag) {
+                window.clickTag = getUriParams.clicktag;
+
+            } else if (getUriParams.clickTag) {
+                window.clickTag = getUriParams.clickTag;
+
+            } else if (getUriParams.clickTAG) {
+                window.clickTag = getUriParams.clickTAG;
+
+            }
+
+            //if not in validator and clicktag is set or opened localy
+            if(window.location.origin.search('h5validator.appspot.com') === -1){
+                if ((window.clickTag === '' || window.clickTag === 'http://' || window.clickTag === 'https://') || (window.isLocal() && window.clickTag === '')) {
+                    console.log('ClickTag is not set by AdServer using testTag');
+                    window.clickTag = window.testTag
+                }
+            }
+            window.open(window.clickTag, '_blank');
+
+        }
+    }
+
+</script>
+
+{{> isLocal }}
+
+</body>
+</html>

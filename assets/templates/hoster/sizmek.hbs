@@ -1,0 +1,79 @@
+{{!-- This is necessary to get tweenmax to work properly in localhost --}}
+{{#if isProduction}}
+    <!-- CDN libs -->
+    <script src="https://secure-ds.serving-sys.com/BurstingcachedScripts/libraries/greensock/2_0_1/TweenMax.min.js"></script>
+    <script type="text/javascript" src="https://secure-ds.serving-sys.com/BurstingScript/EBLoader.js"></script>
+
+{{else}}
+    <script src="https://s0.2mdn.net/ads/studio/cached_libs/tweenmax_2.0.1_min.js"></script>
+    <script type="text/javascript" src="http://ds.serving-sys.com/BurstingScript/EBLoader.js"></script>
+
+{{/if}}
+
+<!--//primary js file for loading es6 bundle-->
+<script src='{{config.politeName}}.js' type='text/javascript'></script>
+
+<!--js entry point and clicktag-->
+<script>
+     /**
+     * This file is compatible with Sizmek
+     */
+
+    {{> testTag }}
+
+
+
+    window.onload = function () {
+        console.log("Sizmek");
+
+        {{#if isProduction}}
+
+            if (window.isLocal()) {
+                enablerInitHandler();
+
+            } else if (!EB.isInitialized()) {
+                EB.addEventListener(EBG.EventName.EB_INITIALIZED, enablerInitHandler);
+
+            } else {
+                enablerInitHandler();
+
+            };
+
+        {{else}}
+
+            enablerInitHandler();
+
+        {{/if}}
+    };
+
+
+    function enablerInitHandler() {
+        loadMainJs();
+        if({{ config.setupClicktag }}) setupClickTag();
+    }
+
+
+    function setupClickTag(clickElement) {
+        console.log("Sizmek ClickTag");
+
+        {{> clickSetup }}
+
+
+        function onClick() {
+            console.log("Sizmek Click");
+
+            {{> exitEvent }}
+
+            if(window.isLocal()){
+                window.open(testTag,'_blank');
+            } else{
+                EB.clickthrough();
+            }
+        };
+    }
+
+    {{> isLocal }}
+</script>
+
+</body>
+</html>

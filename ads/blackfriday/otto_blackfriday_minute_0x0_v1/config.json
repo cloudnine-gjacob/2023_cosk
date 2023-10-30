@@ -1,0 +1,7 @@
+{
+  "template": "../_assets/hbs/sitebar.hbs",
+  "mainJs": "../_assets/js/Sitebar.js",
+  "responsive": true,
+  "bannerWidth": 1200,
+  "bannerHeight": 1200
+}

@@ -1,0 +1,25 @@
+{
+  "tabWidth": 2,
+  "useTabs": false,
+  "overrides": [
+    {
+      "files": "*.js",
+      "options": {
+        "printWidth": 500
+      }
+    },
+    {
+      "files": "*.html",
+      "options": {
+        "printWidth": 500
+      }
+    },
+    {
+      "files": "*.riot",
+      "options": {
+        "parser": "mdx",
+        "jsxBracketSameLine": true
+      }
+    }
+  ]
+}

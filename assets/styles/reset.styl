@@ -1,0 +1,52 @@
+
+html, body, div, span, h1, h2, p, a, img, small, strike, strong {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-family: inherit;
+  vertical-align: baseline;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html, body {
+  overflow: hidden;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: none;
+  user-select: none;
+}
+
+#banner, .banner-animation {
+  if (bannerWidth is defined) {
+    width: unit(bannerWidth, 'px');
+  }
+
+  if (bannerHeight is defined) {
+    height: unit(bannerHeight, 'px');
+  }
+
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+}
+
+body.chrome {
+  image-rendering: -webkit-optimize-contrast;
+}
+
+img {
+  display: block;
+}
