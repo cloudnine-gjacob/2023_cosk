@@ -23,7 +23,7 @@ const c9Config = C9_BANNER_CONFIG;
 
 async function init() {
   await document.fonts.ready;
-  registerComponents(Asset);
+  registerComponents(Asset);  
   wait();
 }
 
