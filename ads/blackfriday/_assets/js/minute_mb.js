@@ -21,7 +21,7 @@ console.log(LOCALE_ASSET_RGX)
 const $q = gsap.utils.selector(document);
 const c9Config = C9_BANNER_CONFIG;
 
-async function init() {
+async function init() {  
   await document.fonts.ready;
   registerComponents(Asset);  
   wait();
